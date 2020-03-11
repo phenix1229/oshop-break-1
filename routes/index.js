@@ -5,7 +5,7 @@ const Product = require('./admin/products/models/Product');
 function paginate(req, res, next) {
   const perPage = 6;
   const page = req.params.pageNumber;
-  Product.find()
+  Product.find({})
     .skip(perPage * (page - 1))
     .limit(perPage)
     .populate('category')
@@ -27,7 +27,7 @@ router.get('/', (req, res, next) => {
   if (req.isAuthenticated()) {
     paginate(req, res, next);
   } else {
-    return res.path('main/home');
+    return res.render('main/home');
   }
 });
 

@@ -1,10 +1,10 @@
 const router = require('express').Router();
-
+const categoryController = require('./categories/controllers/categoryControllers');
 const categoryValidation = require('./validation/categoryValidation');
 const { addProducts } = require('./products/controllers/productControllers');
 
-router.get('/add-category', getAddCategory);
-router.post('/add-category', categoryValidation, createCategory);
+router.get('/add-category', categoryController.getAddCategory);
+router.post('/add-category', categoryValidation, categoryController.createCategory);
 router.get('/add-products/:name', addProducts);
 
 // router.get('/add-category', (req, res, next) => {

@@ -9,6 +9,7 @@ const session = require('express-session');
 const MongoStore = require('connect-mongo')(session);
 const passport = require('passport');
 const methodOverride = require('method-override');
+require('./lib/passport');
 
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users/userRoutes');
